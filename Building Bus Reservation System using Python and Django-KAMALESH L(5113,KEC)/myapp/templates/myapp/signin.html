@@ -1,0 +1,73 @@
+{% extends 'myapp/base.html' %} {% block content %}
+<div class="container  py-3">
+    
+        </div>
+        <style>
+          .card{
+            backdrop-filter: blur(5px); /* Add this line to make the card transparent and blurred */
+            background-color: rgba(255, 255, 255, 0.5); /* Add this line to make the card background semi-transparent */
+            left:500px;
+            bottom:90px;  
+            width:75%;
+        }
+        
+            .card-body{
+                
+              position: relative;
+              bottom: 0px;
+              
+              
+            }
+            .card-title1{
+                color:black;
+            }                 
+            .mb-3 {
+                
+                font-family:Futura;
+                font-size: 25px;
+              }
+        </style>
+    </div>
+    <div class="row justify-content-center mt-4">
+        <div class="col-lg-5 col-md-7 col-sm-10 col-xs-12">
+            <div class="card rounded-10">
+                <div class="card-header">
+                    <div class="card-title1 rounded-5 h3 fw-bolde mb-0 text-center">Login</div>
+                </div>
+                <div class="card-body">
+                    <div class="container-fluid">
+                        <form action="{% url 'signin' %}" method="post" id="signin-form">
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                <label for="username" class="control-label">Username:</label>
+                                <input name='name' class="form-control rounded-5" type="text" id="username" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="example-email-input" class="control-label">Password:</label>
+                                <input name='password' class="form-control rounded-5" type="password" required>
+                            </div>
+
+                        </form>
+                        <p>{{error}}</p>
+                    </div>
+                </div>
+                <div class="card-footer text-center">
+                    <style>
+                        .card-body{
+                            padding-bottom:40px;
+                        }
+
+                        .btn-primary{
+                             
+                            background-color:black;
+                        }
+                    </style>
+                    <button class="btn btn-sm rounded-0 btn-primary btn-block w-100" form="signin-form">Login</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
